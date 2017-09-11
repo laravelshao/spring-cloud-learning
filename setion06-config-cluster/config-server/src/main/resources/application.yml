@@ -1,0 +1,22 @@
+server:
+    port: 8888
+
+spring:
+    application:
+      name: config-server
+    # 配置中心
+    cloud:
+      config:
+        server:
+          git:
+            uri: https://github.com/laravelshao/spring-cloud-config-repo # cloud配置仓库地址
+            search-paths: spring-cloud-learning # 配置仓库路径
+            username: # 公开仓库可不填写
+            password: # 公开仓库可不填写
+        label: master # 配置仓库分支
+
+eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8889/eureka/ # 配置eureka服务器地址
+
