@@ -1,0 +1,27 @@
+server:
+    port: 8881
+management:
+    security:
+      enabled: false # 设置是否启用安全限制
+
+spring:
+    application:
+      name: config-client
+    cloud:
+      config:
+        uri: http://localhost:8888/ # 配置服务中心地址
+        label: master # 远程仓库分支
+        profile: dev # 指定环境
+        discovery:
+          enabled: true # 从配置中心读取文件
+          service-id: config-server # 配置中心服务id
+    # rabbitmq配置
+    rabbitmq:
+      host: localhost
+      port: 5672
+#      username:
+#      password:
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8889/eureka/ # 配置eureka服务器地址
